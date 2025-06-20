@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { Card, CardContent, Typography } from '@mui/material'
 
 interface Post {
     userId: number
@@ -28,16 +29,22 @@ export default function Page() {
     }
 
     return (
-        <div>
-            <h1>Сторінка артиклю</h1>
-            <ul>
+        <div className="p-4">
+            <h1 className="text-xl font-bold mb-4">Сторінка артиклю</h1>
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {posts.slice(0, 10).map(post => (
-                    <li key={post.id} style={{ marginBottom: '1rem', border: '1px solid gray', padding: '10px'}}>
-                        <strong>Назва: {post.title}</strong>
-                        <p>Текст: {post.body}</p>
-                    </li>
+                    <Card key={post.id} sx={{ minHeight: 150 }}>
+                        <CardContent>
+                            <Typography variant="h6" component="div">
+                                {post.title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {post.body}
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 'use client'
-import "./globals.css";
+import '@/styles/globals.scss'
 import Link from "next/link";
 import { usePathname } from "next/navigation"
 import clsx from "clsx"
